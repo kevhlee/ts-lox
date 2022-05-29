@@ -32,7 +32,7 @@ const keywordTokenTypeMap: { [id: string]: TokenType } = {
 };
 
 /**
- * Lexical scanner.
+ * A Lox Lexical scanner.
  */
 export class Scanner {
   private source: string;

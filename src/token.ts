@@ -1,5 +1,5 @@
 /**
- * Lexical type.
+ * Lox lexical type.
  */
 export enum TokenType {
   LEFT_PAREN = "LEFT_PAREN",
@@ -67,7 +67,7 @@ const keywordTokenTypes = new Set<TokenType>([
 ]);
 
 /**
- * Lexical token.
+ * Lox lexical token.
  */
 export class Token {
   type: TokenType;
