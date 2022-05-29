@@ -1,0 +1,11 @@
+# Build
+dist/
+
+# Node
+*.log
+.npm/
+.yarn/
+node_modules/
+
+# MacOS
+.DS_Store
