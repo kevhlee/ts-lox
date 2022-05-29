@@ -2,21 +2,6 @@ import fs from "fs";
 import prompt from "prompt-sync";
 import { Scanner } from "./scanner";
 
-export function run() {
-  const args = process.argv.slice(2);
-
-  if (args.length > 1) {
-    console.error("Usage: lox [path to script]");
-    process.exit(1);
-  }
-
-  if (args.length === 1) {
-    runFile(args[0]);
-  } else {
-    runREPL();
-  }
-}
-
 function runFile(path: string) {
   runSource(fs.readFileSync(path).toString());
 }
@@ -47,4 +32,21 @@ function runSource(source: string) {
   for (const token of scanner.scan()) {
     console.log(token.toString());
   }
+}
+
+//=============================================================================
+// Main
+//=============================================================================
+
+const args = process.argv.slice(2);
+
+if (args.length > 1) {
+  console.error("Usage: lox [path to script]");
+  process.exit(1);
+}
+
+if (args.length === 1) {
+  runFile(args[0]);
+} else {
+  runREPL();
 }
