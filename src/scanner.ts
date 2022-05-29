@@ -61,6 +61,10 @@ export class Scanner {
       this.scanToken();
     }
 
+    this.tokens.push(
+      new Token(TokenType.EOF, "", null, this.line, this.column)
+    );
+
     return this.tokens;
   }
 
