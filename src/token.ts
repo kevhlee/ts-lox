@@ -47,6 +47,25 @@ export enum TokenType {
   EOF = "EOF",
 }
 
+const keywordTokenTypes = new Set<TokenType>([
+  TokenType.AND,
+  TokenType.CLASS,
+  TokenType.ELSE,
+  TokenType.FALSE,
+  TokenType.FOR,
+  TokenType.FUN,
+  TokenType.IF,
+  TokenType.NIL,
+  TokenType.OR,
+  TokenType.PRINT,
+  TokenType.RETURN,
+  TokenType.SUPER,
+  TokenType.THIS,
+  TokenType.TRUE,
+  TokenType.VAR,
+  TokenType.WHILE,
+]);
+
 /**
  * Lexical token.
  */
@@ -71,11 +90,20 @@ export class Token {
     this.column = column;
   }
 
-  hasLiteral(): boolean {
+  isKeyword(): boolean {
+    return keywordTokenTypes.has(this.type);
+  }
+
+  isLiteral(): boolean {
     return this.literal !== null;
   }
 
   toString(): string {
-    return `${this.type}[${this.line}:${this.column}]`;
+    const str = `${this.type}[${this.line}:${this.column}]`;
+
+    if (this.isLiteral() || this.type === TokenType.IDENTIFIER) {
+      return `${str} -> ${this.lexeme}`;
+    }
+    return str;
   }
 }
