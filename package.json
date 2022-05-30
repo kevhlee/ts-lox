@@ -8,7 +8,8 @@
   "scripts": {
     "build": "tsc",
     "dev": "ts-node src/index.ts",
-    "format": "prettier '**/*.ts' --write"
+    "format": "prettier '(src|script|test)**/*.(j|t)s' --write",
+    "generateAST": "node script/generate_ast.js"
   },
   "keywords": [
     "interpreter",
@@ -22,6 +23,7 @@
   "devDependencies": {
     "@types/node": "^17.0.36",
     "@types/prompt-sync": "^4.1.1",
+    "handlebars": "^4.7.7",
     "prettier": "^2.6.2",
     "ts-node": "^10.8.0",
     "typescript": "^4.7.2"
