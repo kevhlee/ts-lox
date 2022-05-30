@@ -163,6 +163,7 @@ export class Scanner {
         break;
       case "\n":
         this.line++;
+        this.column = 1;
         break;
       case '"':
         this.scanStringToken();
