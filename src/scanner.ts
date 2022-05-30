@@ -158,6 +158,7 @@ export class Scanner {
         this.addToken(this.match("=") ? TokenType.LESS_EQUAL : TokenType.LESS);
         break;
       case " ":
+      case "\r":
       case "\t":
         this.column++;
         break;
